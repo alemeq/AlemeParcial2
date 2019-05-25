@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             x:Class="App.Views.NotePage">
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout
+                Padding="13"
+                BackgroundColor="Bisque"
+                HorizontalOptions="Center">
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text=" Nota: "
+                        BackgroundColor="HotPink"
+                        HorizontalOptions="Center"
+                        TextColor="Maroon"
+                        FontSize="30">
+                    </Label>
+                    <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Text="{Binding Content,Mode=TwoWay}">
+                    </Entry>
+                </Grid>
+
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}">
+                </ActivityIndicator>
+
+                <Button
+                    Text="Registrar nota"
+                    TextColor="DarkMagenta"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Fill"
+                    Command="{Binding RegisterCommand,Mode=TwoWay}"
+                    IsEnabled="{Binding IsEnabled}">
+                </Button>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

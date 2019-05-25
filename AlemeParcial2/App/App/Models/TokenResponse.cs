@@ -3,13 +3,42 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace App.Models
+
 {
-    class TokenResponse
+    using System;
+    using Newtonsoft.Json;
+    public class TokenResponse
     {
-        public bool IsSuccess { get; set; }
+        #region Properties
 
-        public string Message { get; set; }
+        [JsonProperty(PropertyName = "access_token")]
 
-        public object Result { get; set; }
+        public string AccessToken { get; set; }
+        [JsonProperty(PropertyName = "token_type")]
+
+        public string TokenType { get; set; }
+
+        [JsonProperty(PropertyName = "expires_in")]
+
+        public int ExpiresIn { get; set; }
+
+        [JsonProperty(PropertyName = "userName")]
+
+        public string UserName { get; set; }
+
+        [JsonProperty(PropertyName = ".issued")]
+
+        public DateTime Issued { get; set; }
+
+        [JsonProperty(PropertyName = ".expires")]
+
+        public DateTime Expires { get; set; }
+
+        [JsonProperty(PropertyName = "error_description")]
+
+        public string ErrorDescription { get; set; }
+
+        #endregion
+
     }
 }

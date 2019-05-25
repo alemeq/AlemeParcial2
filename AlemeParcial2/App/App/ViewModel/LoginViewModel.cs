@@ -5,6 +5,14 @@ using Xamarin.Forms;
 
 namespace App.ViewModel
 {
+    using GalaSoft.MvvmLight.Command;
+    using System;
+    using System.Windows.Input;
+    using Services;
+    using Xamarin.Forms;
+    using global::App.Models;
+
+    using Views;
     class LoginViewModel : BaseViewModel
     {
 
@@ -12,6 +20,7 @@ namespace App.ViewModel
         string content;
         bool isrunning;
         bool isenabled;
+
         #endregion
 
         #region propiedades
@@ -34,19 +43,32 @@ namespace App.ViewModel
 
         #region comandos
         public ICommand LoginCommand
+
         {
-            get { return new RelayCommand(cmdRegister); }
-        }
-        private async void cmdRegister()
-        {
-            if (String.IsNullOrEmpty(Content))
+            get
             {
-                await App.Current.MainPage.DisplayAlert("Register empty", "Please input register", "Accept");
+                return new RelayCommand(cmdLogin);
+            }
+        }
+
+        private async void cmdLogin()
+
+        {
+
+            if (String.IsNullOrEmpty(content))
+            {
+                await App.Current.MainPage.DisplayAlert("note content",
+                                "Please enter your content",
+                                "Accept");
                 return;
             }
             IsRunning = true;
-        }
-        #endregion
+            IsEnabled = false;
 
+            
+            #endregion
+
+
+        }
     }
 }

@@ -8,8 +8,7 @@
         <ScrollView>
             <StackLayout
                 Padding="13"
-                BackgroundColor="Bisque"
-                HorizontalOptions="Center">
+                BackgroundColor="Bisque">
                 
                 <Grid>
                     <Grid.ColumnDefinitions>
